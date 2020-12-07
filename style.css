@@ -1,0 +1,72 @@
+body {
+  background-color: rgb(40, 40, 40);
+}
+
+.tempo {
+  display: flex;
+  justify-content: space-around;
+  user-select: none;
+}
+
+.tempo__slow {
+  font-weight: bold;
+  font-size: 60px;
+  width: 80px;
+  height: 80px;
+  background-color: lightgray;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 50%;
+  line-height: 80px;
+}
+
+.tempo__fast {
+  font-weight: bold;
+  font-size: 60px;
+  width: 80px;
+  height: 80px;
+  background-color: lightgray;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 50%;
+}
+
+.tempo__value {
+  font-size: 80px;
+  user-select: none;
+  color: lightgray;
+}
+
+.mtr {
+  color: darkslategray;
+  text-align: center;
+  user-select: none;
+  margin-bottom: 50px;
+}
+
+.mtr > div {
+  justify-content: space-evenly;
+  display: flex;
+}
+
+.time {
+  color: darkcyan;
+}
+
+#btn {
+  font-size: 60px;
+  width: 100px;
+  height: 100px;
+  user-select: none;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: lightgray;
+}
+
+#pointers {
+  font-size: 50px;
+}
+
+.active {
+  -webkit-text-stroke: 3px orange;
+}
