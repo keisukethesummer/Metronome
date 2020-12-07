@@ -52,7 +52,6 @@ let timeoutId;
 
 function move() {
   loop(stars, lightning, rhythm);
-  return;
 }
 
 //停止
@@ -61,7 +60,6 @@ function stop() {
   stars.forEach((star) => {
     star.classList.remove('time');
   });
-  return;
 }
 
 //スタートボタン
@@ -76,7 +74,6 @@ btn.addEventListener('click', () => {
     btn.textContent = '▶️';
     stop();
   }
-  return;
 });
 
 
@@ -93,7 +90,6 @@ function lightning(star, i){
   }else{
     stars[i - 1].classList.remove('time');
   }
-  return;
 }
 
 //ゆっくりループ
@@ -103,5 +99,4 @@ function loop(array, callback, interval){
       callback(d, i);
     }, i * interval);
   });
-  return;
 }
