@@ -1,7 +1,7 @@
 'use strict'
 
 //テンポ初期設定値
-let tempoVal = 60;
+let tempoVal = 80;
 let rhythm = 60000 / tempoVal / 12; 
 
 //テンポ設定
@@ -9,11 +9,13 @@ const currentTempo = document.getElementById('current-tempo');
 currentTempo.textContent = tempoVal;
 
 function down() {
+  if (tempoVal <= 20 ){return}
   tempoVal --;
   rhythm = 60000 / tempoVal / 12;
   currentTempo.textContent = tempoVal;
 }
 function up() {
+  if (tempoVal >= 240 ){return}
   tempoVal ++;
   rhythm = 60000 / tempoVal / 12;
   currentTempo.textContent = tempoVal;
@@ -57,9 +59,6 @@ function move() {
 //停止
 function stop() {
   clearTimeout(timeoutId);
-  stars.forEach((star) => {
-    star.classList.remove('time');
-  });
 }
 
 //スタートボタン
@@ -73,12 +72,16 @@ btn.addEventListener('click', () => {
     btn.classList.remove('on');
     btn.textContent = '▶️';
     stop();
+    reset();
   }
 });
 
 
 
 function lightning(star, i){
+  if (!btn.classList.contains('on')) {
+    return;
+  }
   star.classList.add('time');
   if (i === 0) {
     stars[stars.length - 1].classList.remove('time');
@@ -94,9 +97,23 @@ function lightning(star, i){
 
 //ゆっくりループ
 function loop(array, callback, interval){
-  array.forEach((d, i) => {
+  if (!btn.classList.contains('on')) {
+    return;
+  }
+  array.some((d, i) => {
     timeoutId = setTimeout(() => {
+      if (!btn.classList.contains('on')) {
+        return true;
+      }
       callback(d, i);
     }, i * interval);
   });
 }
+
+function reset() {
+  if (!btn.classList.contains('on')){
+    stars.forEach((star) => {
+      star.classList.remove('time');
+    })
+  }
+};
