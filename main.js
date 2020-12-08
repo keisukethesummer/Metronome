@@ -39,7 +39,7 @@ for (let i = 0; i < 12; i++) {
   const star = document.createElement('div');
   star.textContent = '★';
   star.addEventListener('click', () => {
-    star.classList.toggle('active')
+    star.classList.toggle('active');
   });
   stars.push(star);
 }
@@ -82,7 +82,9 @@ function lightning(star, i){
   if (!btn.classList.contains('on')) {
     return;
   }
-  star.classList.add('time');
+  if (star.classList.contains('active')) {
+    star.classList.add('time');
+  }
   if (i === 0) {
     stars[stars.length - 1].classList.remove('time');
   }else if(i === stars.length - 1){
