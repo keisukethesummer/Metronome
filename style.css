@@ -20,6 +20,10 @@ body {
   line-height: 80px;
 }
 
+.disabled {
+  opacity: 0.3;
+}
+
 .tempo__fast {
   font-weight: bold;
   font-size: 60px;
@@ -50,7 +54,11 @@ body {
 }
 
 .time {
-  color: darkcyan;
+  color: rgb(255, 196, 0);
+  /* animation-name: pulsate;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out; */
+  /* animation-iteration-count: infinite; */
 }
 
 #btn {
@@ -68,5 +76,34 @@ body {
 }
 
 .active {
-  -webkit-text-stroke: 3px orange;
+  text-shadow: 0 0 3px orange,
+  0 0 3px orange,
+  0 0 3px orange,
+  0 0 3px orange,
+  0 0 3px orange,
+  0 0 3px orange,
+  0 0 3px orange,
+  0 0 3px orange,
+  0 0 3px orange,
+  0 0 3px orange,
+  0 0 3px orange,
+  0 0 3px orange,
+  0 0 3px orange,
+  0 0 3px orange,
+  0 0 3px orange;
+}
+
+@keyframes beat {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.1;
+  }
+}
+
+@keyframes pulsate {
+  /* 0%   { transform: scale(1, 1); } */
+  50%  { opacity: 0.5; }
+  100% { transform: scale(4, 4); opacity: 0.0; }
 }
