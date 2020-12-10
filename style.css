@@ -53,6 +53,16 @@ body {
   display: flex;
 }
 
+.ripple {
+  font-size: 40px;
+  color: rgb(40, 40, 40);
+  user-select: none;
+  margin: 0 auto;
+  text-align: center;
+  /* animation-name: ripple;
+  animation-duration: 0.3s; */
+}
+
 .time {
   color: rgb(255, 196, 0);
   /* animation-name: pulsate;
@@ -102,8 +112,13 @@ body {
   }
 }
 
-@keyframes pulsate {
-  /* 0%   { transform: scale(1, 1); } */
-  50%  { opacity: 0.5; }
-  100% { transform: scale(4, 4); opacity: 0.0; }
+@keyframes ripple {
+  0%   {
+    color: cornflowerblue;
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(10, 10); opacity: 0.0;
+  }
 }
