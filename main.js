@@ -7,23 +7,23 @@ let rhythm = 60000 / tempoVal / 12;
 //テンポ設定
 if(!HTMLElement.prototype.hold){
   Object.defineProperty(HTMLElement.prototype, 'hold', {
-    configurable: true,
-    enumerable: false,
-    writable: true,
+    // configurable: true,
+    // enumerable: false,
+    // writable: true,
     
-    value: function(callback,holdtime) {
+    value: function(callback,holdTime) {
       this.addEventListener('mousedown', function (event) {
-        event.preventDefault();
+        // event.preventDefault();
         callback(); //event.preventDefaultでクリック等のイベントが解除されてしまうので、要素初タッチ時にも処理を行うようcallbackを設置しておく。
         let time = 0;
         const interval = setInterval(function(){
           time += 100;
-          if(time > holdtime){
+          if(time > holdTime){
             callback();
           }
         },60);
         this.addEventListener('mouseup', function (event) {
-          event.preventDefault();
+          // event.preventDefault();
           clearInterval(interval);
         });
       });
@@ -36,26 +36,30 @@ const currentTempo = document.getElementById('current-tempo');
 currentTempo.textContent = tempoVal;
 
 function down() {
-  if (tempoVal <= 20 ){
-    slowBtn.classList.add('disabled');
+  if (tempoVal === 20 ){
     return;
   }
   if (tempoVal === 240) {
     fastBtn.classList.remove('disabled');
   }
   tempoVal --;
+  if (tempoVal === 20) {
+    slowBtn.classList.add('disabled');
+  }
   rhythm = 60000 / tempoVal / 12;
   currentTempo.textContent = tempoVal;
 }
 function up() {
-  if (tempoVal >= 240 ){
-    fastBtn.classList.add('disabled');
+  if (tempoVal === 240 ){
     return;
   }
   if (tempoVal === 20){
     slowBtn.classList.remove('disabled');
   }
   tempoVal ++;
+  if (tempoVal === 240) {
+    fastBtn.classList.add('disabled');
+  }
   rhythm = 60000 / tempoVal / 12;
   currentTempo.textContent = tempoVal;
 }
@@ -160,5 +164,4 @@ function reset() {
       star.classList.remove('time');
     })
   }
-  stars[0].classList.add('time');
 };
