@@ -1,75 +1,185 @@
 body {
   background-color: rgb(40, 40, 40);
+  height: 100vh;
+  width: 100vw;
 }
 
-.mtr {
-  color: darkslategray;
-  text-align: center;
-  user-select: none;
-  padding-top: 10vh;
+/* 960px以下 */
+@media screen and (max-width:960px) {
+  .app {
+    /* background-color: cadetblue; */
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    /* position: relative; */
+  }
+  
+  #pointers {
+    /* background-color: firebrick; */
+    width: 30vw;
+    height: 100vh;
+    text-align: center;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  
+  #pointers > div {
+    color: darkslategray;
+    height: calc(100vh / 12);
+    font-size: 100px;
+  }
+
+  .control{
+    /* background-color: forestgreen; */
+    height: 100vh;
+    width: 70vw;
+    display: flex;
+  }
+    
+  .btn {
+    display: flex;
+    width: 35vw;
+  }
+
+  #btn {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    user-select: none;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+
+  .tempo {
+    /* background-color: gold; */
+    width: 35vw;
+    margin-right: 5vw;
+    user-select: none;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    flex-direction: column-reverse;
+  }
+
+  .tempo__value {
+    font-size: 150px;
+    user-select: none;
+    color: lightgray;
+  }
+  
+  .tempo__slow {
+    width: calc(100vw * 35 / 100);
+    background-color: lightgray;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 50%;
+  }
+  
+  .tempo__fast {
+    width: calc(100vw * 35 / 100);
+    background-color: lightgray;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 50%;
+  }
 }
 
-.mtr > div {
-  justify-content: space-evenly;
-  display: flex;
-}
+/* ここから961px以上 */
+@media screen and (min-width:961px) {
+  #pointers {
+    /* background-color: blueviolet; */
+    text-align: center;
+    user-select: none;
+    padding: 10vh;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  #pointers > div {
+    color: darkslategray;
+    font-size: calc(100vw / 12);
+  }
 
-#pointers {
-  margin-top: 50px;
-  font-size: 50px;
-  height: 100px;
-}
+  .btn {
+    /* background-color: hotpink; */
+    height: 35vh;
+    display: flex;
+  }
+  
+  #btn {
+    width: 300px;
+    height: 300px;
+    user-select: none;
+    cursor: pointer;
+    margin: auto;
+    border-radius: 50%;
+  }
 
-.control {
-  padding: 20vh 0;
+  .tempo {
+    /* background-color: lawngreen; */
+    height: 30vh;
+    display: flex;
+    justify-content: space-around;
+    user-select: none;
+  }
+   
+  .tempo__value {
+    font-size: 180px;
+    user-select: none;
+    color: lightgray;
+  }
+  
+  .tempo__slow {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    background-color: lightgray;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 50%;
+  }
+  
+  .tempo__fast {
+    width: 200px;
+    height: 200px;
+    background-color: lightgray;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 50%;
+  }
 }
-
-.tempo {
-  display: flex;
-  justify-content: space-around;
-  user-select: none;
-}
-
-.tempo__value {
-  font-size: 80px;
-  user-select: none;
-  color: lightgray;
-}
-
-.tempo__slow {
-  width: 80px;
-  height: 80px;
-  background-color: lightgray;
-  cursor: pointer;
-  user-select: none;
-  border-radius: 50%;
-}
-
-.tempo__fast {
-  width: 80px;
-  height: 80px;
-  background-color: lightgray;
-  cursor: pointer;
-  user-select: none;
-  border-radius: 50%;
-}
+/* 601以上ここまで */
 
 .disabled {
   opacity: 0.3;
 }
 
-.btn {
-  display: flex;
+#pointers > .time {
+  color: rgb(255, 196, 0);
+  /* animation-name: pulsate;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out; */
+  /* animation-iteration-count: infinite; */
 }
 
-#btn {
-  width: 100px;
-  height: 100px;
-  user-select: none;
-  cursor: pointer;
-  margin: auto;
-  border-radius: 50%;
-  padding-bottom: 5vh;
+.active {
+  text-shadow: 0 0 4px orange,
+  0 0 4px orange,
+  0 0 4px orange,
+  0 0 4px orange,
+  0 0 4px orange,
+  0 0 4px orange,
+  0 0 4px orange,
+  0 0 4px orange,
+  0 0 4px orange,
+  0 0 4px orange,
+  0 0 4px orange,
+  0 0 4px orange,
+  0 0 4px orange,
+  0 0 4px orange,
+  0 0 4px orange;
 }
 
 /* .ripple {
@@ -82,35 +192,10 @@ body {
   animation-duration: 0.3s;
 } */
 
-.time {
-  color: rgb(255, 196, 0);
-  /* animation-name: pulsate;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-out; */
-  /* animation-iteration-count: infinite; */
-}
-
-.active {
-  text-shadow: 0 0 3px orange,
-  0 0 3px orange,
-  0 0 3px orange,
-  0 0 3px orange,
-  0 0 3px orange,
-  0 0 3px orange,
-  0 0 3px orange,
-  0 0 3px orange,
-  0 0 3px orange,
-  0 0 3px orange,
-  0 0 3px orange,
-  0 0 3px orange,
-  0 0 3px orange,
-  0 0 3px orange,
-  0 0 3px orange;
-}
-
 /* @keyframes beat {
-  from {
-    opacity: 1;
+
+from {
+  opacity: 1;
   }
   to {
     opacity: 0.1;
