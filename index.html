@@ -4,22 +4,32 @@
   <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
   <link rel ="stylesheet" href="./style.css">
   <meta charset="UTF-8">
-  <meta name="viewport">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
   <title>メトロノーム</title>
 </head>
 <body>
   <div class="app">
+
     <div id="mtr" class="mtr">
       <div id='pointers' class="mtr__col">
       </div>
-      <button id="btn">▶︎</button> 
     </div>
-    <div class="tempo">
-      <button id="slow" class="tempo__slow">−</button>
-      <div id="current-tempo" class="tempo__value"></div>
-      <button id="fast" class="tempo__fast">+</button>
+
+    <div class="control">      
+      <div class="btn">
+        <img id="btn" src="images/icon15_black.png"> 
+      </div>
+      <div class="tempo">
+        <div>
+          <img src="images/minusbutton_79561.png" id="slow" class="tempo__slow">
+        </div>
+        <div id="current-tempo" class="tempo__value"></div>
+        <div>
+          <img src="images/plusbutton_121982.png" id="fast" class="tempo__fast">
+        </div>
+      </div>
     </div>
-    <div id="ripples"></div>
+
   </div>
   <script src="./main.js">
     

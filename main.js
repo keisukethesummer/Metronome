@@ -1,7 +1,7 @@
 'use strict'
 
 //テンポ初期設定値
-let tempoVal = 80;
+let tempoVal = 90;
 let rhythm = 60000 / tempoVal / 12; 
 
 //テンポ設定
@@ -95,13 +95,6 @@ stars[0].addEventListener('transitionend', () => {
   stars[0].classList.remove('time');
 });
 
-// アニメーションの生成
-const ripples = document.getElementById('ripples')
-const ripple = document.createElement('div');
-ripple.textContent = '○';
-// ripple.classList.add('ripple');
-ripples.appendChild(ripple);
-
 //スタート
 let timeoutId;
 
@@ -118,20 +111,18 @@ function stop() {
 const btn = document.getElementById('btn');
 btn.addEventListener('click', () => {
   if (!btn.classList.contains('on')) {
+    btn.src="./images/stop_gray.png";
     btn.classList.add('on');
-    btn.textContent = '⬛︎';
     move();
   }else{
+    btn.src="./images/icon15_black.png";
     btn.classList.remove('on');
-    btn.textContent = '▶️';
     stop();
-    clearInterval(rippleId);
     reset();
   }
 });
 
 
-let rippleId;
 function lightning(star, i){
   if (!btn.classList.contains('on')) {
     return;
@@ -141,10 +132,8 @@ function lightning(star, i){
   }
   if (i === 0) {
     stars[stars.length - 1].classList.remove('time');
-    ripple.classList.add('ripple');
   }else if(i === stars.length - 1){
     stars[i - 1].classList.remove('time');
-    ripple.classList.remove('ripple');
     setTimeout(() => {
       move();
     }, rhythm);
@@ -174,5 +163,4 @@ function reset() {
       star.classList.remove('time');
     })
   }
-  ripple.classList.remove('ripple');
 };

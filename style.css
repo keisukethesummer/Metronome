@@ -2,37 +2,32 @@ body {
   background-color: rgb(40, 40, 40);
 }
 
+.mtr {
+  color: darkslategray;
+  text-align: center;
+  user-select: none;
+  padding-top: 10vh;
+}
+
+.mtr > div {
+  justify-content: space-evenly;
+  display: flex;
+}
+
+#pointers {
+  margin-top: 50px;
+  font-size: 50px;
+  height: 100px;
+}
+
+.control {
+  padding: 20vh 0;
+}
+
 .tempo {
   display: flex;
   justify-content: space-around;
   user-select: none;
-}
-
-.tempo__slow {
-  font-weight: bold;
-  font-size: 60px;
-  width: 80px;
-  height: 80px;
-  background-color: lightgray;
-  cursor: pointer;
-  user-select: none;
-  border-radius: 50%;
-  line-height: 80px;
-}
-
-.disabled {
-  opacity: 0.3;
-}
-
-.tempo__fast {
-  font-weight: bold;
-  font-size: 60px;
-  width: 80px;
-  height: 80px;
-  background-color: lightgray;
-  cursor: pointer;
-  user-select: none;
-  border-radius: 50%;
 }
 
 .tempo__value {
@@ -41,27 +36,51 @@ body {
   color: lightgray;
 }
 
-.mtr {
-  color: darkslategray;
-  text-align: center;
+.tempo__slow {
+  width: 80px;
+  height: 80px;
+  background-color: lightgray;
+  cursor: pointer;
   user-select: none;
-  margin-bottom: 50px;
+  border-radius: 50%;
 }
 
-.mtr > div {
-  justify-content: space-evenly;
+.tempo__fast {
+  width: 80px;
+  height: 80px;
+  background-color: lightgray;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 50%;
+}
+
+.disabled {
+  opacity: 0.3;
+}
+
+.btn {
   display: flex;
 }
 
-.ripple {
+#btn {
+  width: 100px;
+  height: 100px;
+  user-select: none;
+  cursor: pointer;
+  margin: auto;
+  border-radius: 50%;
+  padding-bottom: 5vh;
+}
+
+/* .ripple {
   font-size: 40px;
   color: rgb(40, 40, 40);
   user-select: none;
   margin: 0 auto;
   text-align: center;
-  /* animation-name: ripple;
-  animation-duration: 0.3s; */
-}
+  animation-name: ripple;
+  animation-duration: 0.3s;
+} */
 
 .time {
   color: rgb(255, 196, 0);
@@ -69,20 +88,6 @@ body {
   animation-duration: 0.5s;
   animation-timing-function: ease-out; */
   /* animation-iteration-count: infinite; */
-}
-
-#btn {
-  font-size: 60px;
-  width: 100px;
-  height: 100px;
-  user-select: none;
-  cursor: pointer;
-  border-radius: 50%;
-  background-color: lightgray;
-}
-
-#pointers {
-  font-size: 50px;
 }
 
 .active {
@@ -103,7 +108,7 @@ body {
   0 0 3px orange;
 }
 
-@keyframes beat {
+/* @keyframes beat {
   from {
     opacity: 1;
   }
@@ -121,4 +126,4 @@ body {
   100% {
     transform: scale(10, 10); opacity: 0.0;
   }
-}
+} */
