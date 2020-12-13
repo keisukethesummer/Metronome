@@ -1,4 +1,16 @@
 'use strict'
+document.body.addEventListener('touchstart', function(e) {
+  console.log(e.target)
+});
+document.body.addEventListener('touchend', function(e) {
+  console.log(TouchEvent)
+})
+
+
+// タッチ端末のスワイプで戻る防止
+document.body.addEventListener('touchmove', function(event) {
+  event.preventDefault();
+},false);
 
 //テンポ初期設定値
 let tempoVal = 90;
@@ -7,13 +19,13 @@ let rhythm = 60000 / tempoVal / 12;
 //テンポ設定
 if(!HTMLElement.prototype.hold){
   Object.defineProperty(HTMLElement.prototype, 'hold', {
-    // configurable: true,
-    // enumerable: false,
-    // writable: true,
+    configurable: true,
+    enumerable: false,
+    writable: true,
     
     value: function(callback,holdTime) {
       this.addEventListener('mousedown', function (event) {
-        // event.preventDefault();
+        event.preventDefault();
         callback(); //event.preventDefaultでクリック等のイベントが解除されてしまうので、要素初タッチ時にも処理を行うようcallbackを設置しておく。
         let time = 0;
         const interval = setInterval(function(){
@@ -23,7 +35,7 @@ if(!HTMLElement.prototype.hold){
           }
         },60);
         this.addEventListener('mouseup', function (event) {
-          // event.preventDefault();
+          event.preventDefault();
           clearInterval(interval);
         });
       });
@@ -129,6 +141,7 @@ function lightning(star, i){
   }
   if (star.classList.contains('active')) {
     star.classList.add('time');
+    sound();
   }
   if (i === 0) {
     stars[stars.length - 1].classList.remove('time');
@@ -164,3 +177,10 @@ function reset() {
     })
   }
 };
+
+function sound() {
+  if (typeof (document.getElementById('btnsoud').currentTime) !== 'undefined'){
+    document.getElementById('btnsound').currentTime = 0;
+  }
+  document.getElementById('btnsound').play();
+}
