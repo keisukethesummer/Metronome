@@ -496,14 +496,14 @@ body {
   width: 100vw;
 }
 
+.app {
+  background-color: cadetblue;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
 /* 960px以下 */
 @media screen and (max-width:960px) {  
-  .app {
-    /* background-color: cadetblue; */
-    display: flex;
-    height: 100vh;
-    width: 100vw;
-  }
   
   #pointers {
     /* background-color: firebrick; */
@@ -595,6 +595,9 @@ body {
 
 /* ここから961px以上 */
 @media screen and (min-width:961px) {
+  .app {
+    display: block;
+  }
   #pointers {
     /* background-color: blueviolet; */
     text-align: center;
@@ -670,7 +673,7 @@ body {
     border-radius: 50%;
   }
 }
-/* 601以上ここまで */
+/* 961以上ここまで */
 
 .disabled {
   opacity: 0.3;
