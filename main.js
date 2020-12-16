@@ -141,7 +141,7 @@ function lightning(star, i){
   }
   if (star.classList.contains('active')) {
     star.classList.add('time');
-    sound();
+    // sound();
   }
   if (i === 0) {
     stars[stars.length - 1].classList.remove('time');

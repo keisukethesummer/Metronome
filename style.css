@@ -497,100 +497,97 @@ body {
 }
 
 .app {
-  background-color: cadetblue;
+  /* background-color: cadetblue; */
   display: flex;
   height: 100vh;
   width: 100vw;
 }
-/* 960px以下 */
-@media screen and (max-width:960px) {  
-  
-  #pointers {
-    /* background-color: firebrick; */
-    width: 30vw;
-    height: 85vh;
-    text-align: center;
-    user-select: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-  }
-  
-  #pointers > div {
-    color: darkslategray;
-    height: calc(85vh / 12);
-    font-size: calc(85vh / 12);
-    text-shadow: 0 0 4px cadetblue,
-    0 0 4px cadetblue,
-    0 0 4px cadetblue,
-    0 0 4px cadetblue,
-    0 0 4px cadetblue,
-    0 0 4px cadetblue,
-    0 0 4px cadetblue,
-    0 0 4px cadetblue,
-    0 0 4px cadetblue,
-    0 0 4px cadetblue,
-    0 0 4px cadetblue,
-    0 0 4px cadetblue,
-    0 0 4px cadetblue,
-    0 0 4px cadetblue,
-    0 0 4px cadetblue;
-  }
 
-  .control{
-    /* background-color: forestgreen; */
-    height: 85vh;
-    width: 70vw;
-    display: flex;
-  }
-    
-  .btn {
-    /* background-color: rosybrown; */
-    display: flex;
-    width: 30vw;
-  }
+#pointers {
+  /* background-color: firebrick; */
+  width: 30vw;
+  height: 85vh;
+  text-align: center;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
 
-  #btn {
-    width: 100%;
-    margin: auto;
-    user-select: none;
-    cursor: pointer;
-    border-radius: 50%;
-  }
+#pointers > div {
+  color: darkslategray;
+  height: calc(85vh / 12);
+  font-size: calc(85vh / 12);
+  text-shadow: 0 0 4px cadetblue,
+  0 0 4px cadetblue,
+  0 0 4px cadetblue,
+  0 0 4px cadetblue,
+  0 0 4px cadetblue,
+  0 0 4px cadetblue,
+  0 0 4px cadetblue,
+  0 0 4px cadetblue,
+  0 0 4px cadetblue,
+  0 0 4px cadetblue,
+  0 0 4px cadetblue,
+  0 0 4px cadetblue,
+  0 0 4px cadetblue,
+  0 0 4px cadetblue,
+  0 0 4px cadetblue;
+}
 
-  .tempo {
-    /* background-color: gold; */
-    width: 35vw;
-    margin-right: 5vw;
-    user-select: none;
-    display: flex;
-    text-align: center;
-    justify-content: space-evenly;
-    flex-direction: column-reverse;
-  }
+.control{
+  /* background-color: forestgreen; */
+  height: 85vh;
+  width: 70vw;
+  display: flex;
+}
 
-  .tempo__value {
-    /* background-color: sandybrown; */
-    font-size: calc(80vw * 20 / 100);
-    user-select: none;
-    color: lightgray;
-  }
-  
-  .tempo__slow {
-    width: calc(80vw * 25 / 100);
-    background-color: lightgray;
-    cursor: pointer;
-    user-select: none;
-    border-radius: 50%;
-  }
-  
-  .tempo__fast {
-    width: calc(80vw * 25 / 100);
-    background-color: lightgray;
-    cursor: pointer;
-    user-select: none;
-    border-radius: 50%;
-  }
+.btn {
+/* background-color: rosybrown; */
+display: flex;
+width: 30vw;
+}
+
+#btn {
+  width: 100%;
+  margin: auto;
+  user-select: none;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.tempo {
+  /* background-color: gold; */
+  width: 35vw;
+  margin-right: 5vw;
+  user-select: none;
+  display: flex;
+  text-align: center;
+  justify-content: space-evenly;
+  flex-direction: column-reverse;
+}
+
+.tempo__value {
+  /* background-color: sandybrown; */
+  font-size: calc(80vw * 20 / 100);
+  user-select: none;
+  color: lightgray;
+}
+
+.tempo__slow {
+  width: calc(80vw * 25 / 100);
+  background-color: lightgray;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 50%;
+}
+
+.tempo__fast {
+  width: calc(80vw * 25 / 100);
+  background-color: lightgray;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 50%;
 }
 
 /* ここから961px以上 */
@@ -598,79 +595,63 @@ body {
   .app {
     display: block;
   }
+
   #pointers {
     /* background-color: blueviolet; */
     text-align: center;
     user-select: none;
+    width: 100vw;
+    height: 30vh;
     padding: 10vh;
     display: flex;
+    flex-direction: initial;
     justify-content: space-evenly;
   }
   
   #pointers > div {
-    color: darkslategray;
     font-size: calc(100vw / 12);
-    text-shadow: 0 0 4px cadetblue,
-    0 0 4px cadetblue,
-    0 0 4px cadetblue,
-    0 0 4px cadetblue,
-    0 0 4px cadetblue,
-    0 0 4px cadetblue,
-    0 0 4px cadetblue,
-    0 0 4px cadetblue,
-    0 0 4px cadetblue,
-    0 0 4px cadetblue,
-    0 0 4px cadetblue,
-    0 0 4px cadetblue,
-    0 0 4px cadetblue,
-    0 0 4px cadetblue;
+  }
+
+  .control {
+    display: block;
+    height: 70vh;
+    width: 100vw;
   }
 
   .btn {
     /* background-color: hotpink; */
+    width: 100vw;
     height: 30vh;
-    display: flex;
   }
   
   #btn {
-    height: 90%;
-    user-select: none;
-    cursor: pointer;
-    margin: auto;
-    border-radius: 50%;
+    height: 200px;
+    width: 200px;
   }
 
   .tempo {
     /* background-color: lawngreen; */
     height: 30vh;
+    width: 100vw;
+    margin-right: 0;
     display: flex;
+    flex-direction: initial;
     justify-content: space-around;
     user-select: none;
   }
    
   .tempo__value {
     font-size: 140px;
-    user-select: none;
-    color: lightgray;
   }
   
   .tempo__slow {
     width: 200px;
     height: 200px;
-    margin: auto;
-    background-color: lightgray;
-    cursor: pointer;
-    user-select: none;
-    border-radius: 50%;
   }
   
   .tempo__fast {
     width: 200px;
     height: 200px;
-    background-color: lightgray;
-    cursor: pointer;
-    user-select: none;
-    border-radius: 50%;
   }
 }
 /* 961以上ここまで */
@@ -689,11 +670,6 @@ body {
 
 #pointers > .active {
   text-shadow: 0 0 4px orange,
-  0 0 4px orange,
-  0 0 4px orange,
-  0 0 4px orange,
-  0 0 4px orange,
-  0 0 4px orange,
   0 0 4px orange,
   0 0 4px orange,
   0 0 4px orange,
