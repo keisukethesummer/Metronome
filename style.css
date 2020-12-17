@@ -494,6 +494,9 @@ body {
   background-color: rgb(40, 40, 40);
   height: 100vh;
   width: 100vw;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  pointer-events: none;
 }
 
 .app {
@@ -515,9 +518,12 @@ body {
 }
 
 #pointers > div {
+  /* background-color: silver; */
   color: darkslategray;
   height: calc(85vh / 12);
+  width: calc(85vh / 12);
   font-size: calc(85vh / 12);
+  margin: auto;
   text-shadow: 0 0 4px cadetblue,
   0 0 4px cadetblue,
   0 0 4px cadetblue,

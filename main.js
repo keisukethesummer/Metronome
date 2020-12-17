@@ -1,16 +1,21 @@
 'use strict'
-document.body.addEventListener('touchstart', function(e) {
-  console.log(e.target)
-});
-document.body.addEventListener('touchend', function(e) {
-  console.log(TouchEvent)
-})
+{
+  window.oncontextmenu = function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    return false;
+};
+  // スクロールを禁止する関数
+  function noScroll(e) {
+    e.preventDefault();
+  }
+ // スクロール禁止
+ document.addEventListener('touchmove', noScroll, { passive: false });
+ // タッチ端末のスワイプで戻る防止
+ document.body.addEventListener('touchmove', function(event) {
+   event.preventDefault();
+ },false);
 
-
-// タッチ端末のスワイプで戻る防止
-document.body.addEventListener('touchmove', function(event) {
-  event.preventDefault();
-},false);
 
 //テンポ初期設定値
 let tempoVal = 90;
@@ -24,7 +29,7 @@ if(!HTMLElement.prototype.hold){
     writable: true,
     
     value: function(callback,holdTime) {
-      this.addEventListener('mousedown', function (event) {
+      this.addEventListener('touchstart', function (event) {
         event.preventDefault();
         callback(); //event.preventDefaultでクリック等のイベントが解除されてしまうので、要素初タッチ時にも処理を行うようcallbackを設置しておく。
         let time = 0;
@@ -34,7 +39,22 @@ if(!HTMLElement.prototype.hold){
             callback();
           }
         },60);
-        this.addEventListener('mouseup', function (event) {
+        this.addEventListener('touchend', function (event) {
+          event.preventDefault();
+          clearInterval(interval);
+        });
+      });
+      this.addEventListener('mousedown', function (event) {
+        event.preventDefault();
+        callback();
+        let time = 0;
+        const interval = setInterval(function(){
+          time += 100;
+          if(time > holdTime){
+            callback();
+          }
+        },60);
+        window.addEventListener('mouseup', function (event) {
           event.preventDefault();
           clearInterval(interval);
         });
@@ -51,7 +71,7 @@ function down() {
   if (tempoVal === 20 ){
     return;
   }
-  if (tempoVal === 240) {
+  if (tempoVal === 200) {
     fastBtn.classList.remove('disabled');
   }
   tempoVal --;
@@ -62,14 +82,14 @@ function down() {
   currentTempo.textContent = tempoVal;
 }
 function up() {
-  if (tempoVal === 240 ){
+  if (tempoVal === 200 ){
     return;
   }
   if (tempoVal === 20){
     slowBtn.classList.remove('disabled');
   }
   tempoVal ++;
-  if (tempoVal === 240) {
+  if (tempoVal === 200) {
     fastBtn.classList.add('disabled');
   }
   rhythm = 60000 / tempoVal / 12;
@@ -96,16 +116,19 @@ for (let i = 0; i < 12; i++) {
 const pointers = document.getElementById('pointers');
 stars.forEach((star, i) => {
   if (i !== 0){
-    star.addEventListener('click', () => {
+    star.addEventListener('touchstart', (e) => {
+      e.preventDefault();
       star.classList.toggle('active');
+      sound2();
+    });
+    star.addEventListener('mousedown', () => {
+      star.classList.toggle('active');
+      sound2();
     });
   }
   pointers.appendChild(star);
 });
-stars[0].classList.add('active', 'base');
-stars[0].addEventListener('transitionend', () => {
-  stars[0].classList.remove('time');
-});
+stars[0].classList.add('active');
 
 //スタート
 let timeoutId;
@@ -121,11 +144,27 @@ function stop() {
 
 //スタート・停止ボタン
 const btn = document.getElementById('btn');
-btn.addEventListener('click', () => {
+btn.addEventListener('touchstart', (e) => {
+  e.preventDefault();
   if (!btn.classList.contains('on')) {
     btn.src="./images/stop_gray.png";
     btn.classList.add('on');
     move();
+    sound();
+  }else{
+    btn.src="./images/icon15_black.png";
+    btn.classList.remove('on');
+    stop();
+    reset();
+  }
+});
+
+btn.addEventListener('mousedown', () => {
+  if (!btn.classList.contains('on')) {
+    btn.src="./images/stop_gray.png";
+    btn.classList.add('on');
+    move();
+    sound();
   }else{
     btn.src="./images/icon15_black.png";
     btn.classList.remove('on');
@@ -141,7 +180,7 @@ function lightning(star, i){
   }
   if (star.classList.contains('active')) {
     star.classList.add('time');
-    // sound();
+    sound();
   }
   if (i === 0) {
     stars[stars.length - 1].classList.remove('time');
@@ -179,8 +218,24 @@ function reset() {
 };
 
 function sound() {
-  if (typeof (document.getElementById('btnsoud').currentTime) !== 'undefined'){
-    document.getElementById('btnsound').currentTime = 0;
+  const sound = document.getElementById('sound');
+  if (typeof (sound.currentTime) !== 'undefined'){
+    sound.currentTime = 0;
   }
-  document.getElementById('btnsound').play();
+  const playPromise = sound.play();
+  if (playPromise !== undefined) {
+    playPromise.then().catch(error => {});
+  }
+};
+
+function sound2() {
+  const sound2 = document.getElementById('sound2');
+  if (typeof (sound2.currentTime) !== 'undefined'){
+    sound2.currentTime = 0;
+  }
+  const playPromise = sound2.play();
+  if (playPromise !== undefined) {
+    playPromise.then().catch(error => {});
+  }
+};
 }

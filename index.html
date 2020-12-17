@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
   <link rel ="stylesheet" href="./style.css">
+  <link rel="shortcut icon" href="#">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>メトロノーム</title>
 </head>
-<body>
+<body oncontextmenu='return false;' oncopy='return false;'>
   <div class="app">
 
     <div id='pointers'>
@@ -31,7 +31,8 @@
     </div>
     
   </div>
-  <audio id="btnsound" preload="auto" src="./sounds/メトロノーム - 2020:12:13 18.03.mp3"></audio>
+  <audio id="sound" preload="auto" src="./sounds/cursor3.mp3"></audio>
+  <audio id="sound2" preload="auto" src="./sounds/decision2.mp3"></audio>
   <script src="./main.js">
     
     </script>
