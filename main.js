@@ -63,7 +63,6 @@ if(!HTMLElement.prototype.hold){
   });
 }
 
-let intervalId;
 const currentTempo = document.getElementById('current-tempo');
 currentTempo.textContent = tempoVal;
 

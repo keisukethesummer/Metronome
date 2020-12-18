@@ -496,7 +496,6 @@ body {
   width: 100vw;
   -webkit-user-select: none;
   -webkit-touch-callout: none;
-  pointer-events: none;
 }
 
 .app {
@@ -577,6 +576,7 @@ width: 30vw;
   /* background-color: sandybrown; */
   font-size: calc(80vw * 20 / 100);
   user-select: none;
+  pointer-events: none;
   color: lightgray;
 }
 
